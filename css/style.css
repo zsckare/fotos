@@ -32,3 +32,6 @@ html,body{
 .rigth-space {
 	margin-left: 9.75em !important;
 }
+#sliderscreen{
+	z-index: -1000;
+}
