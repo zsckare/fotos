@@ -22,7 +22,10 @@ if (!empty($_FILES)) {
 
 if (isset($filesUploaded) and !empty($filesUploaded)) {
     echo "Archivos cargados :)", "<br>";
-header("Location: php/galerias.php");
+    #header("Location: php/galerias.php");
+echo '<script type="text/javascript">
+window.location="php/galerias.php";
+</script>';
 }
 
 function moveFiles($files)

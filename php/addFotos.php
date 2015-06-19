@@ -20,18 +20,7 @@
     <?php echo '<input type="hidden" name="galeria" value="'.$id.'">'; ?>
     <label>Archivo 1</label>
     <input type="file" name="archivo[]">
-    <br>
-    <label>Archivo 2</label>
-    <input type="file" name="archivo[]">
-    <br>
-    <label>Archivo 3</label>
-    <input type="file" name="archivo[]">
-    <br><br>    
-    <label>Archivo 4</label>
-    <input type="file" name="archivo[]">
-    <br><br>
-    <label>Archivo 5</label>
-    <input type="file" name="archivo[]">
+
     <br><br>
     <input type="submit" value="Guardar Archivos">
   </form>

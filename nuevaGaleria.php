@@ -61,7 +61,7 @@
 	$insertar="INSERT INTO `fotos`.`galerias` (`id_galeria`, `id_categoria`, `nombre_galeria`) VALUES (NULL, '$categoria', '$nombre');";
 	mysql_query($insertar)or die(mysql_error());
 				echo '<script type="text/javascript">alert("REGISTRADO :)");</script>';
-	header("Location: php/galerias.php");
+	#header("Location: php/galerias.php");
 	}
  ?>
 	<!--SCRIPTS-->
