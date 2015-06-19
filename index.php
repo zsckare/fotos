@@ -34,7 +34,9 @@ $link=Conectarse();
 
   </div>
 </div>
-
+<div class="logo">
+  <h3>Alejandro Herrera</h3>
+</div>
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
@@ -45,7 +47,8 @@ $link=Conectarse();
   <script>
     $('#slides').superslides({
       play: '8000',
-      animation: 'fade'
+      animation: 'fade',
+      pagination: false
     });
   </script>
   </body>

@@ -383,7 +383,7 @@ var pagination = {
   _setup: function() {
     if (!that.options.pagination || that.size() === 1) { return; }
 
-    var $pagination = $("", {
+    var $pagination = $("<nav>", {
       'class': that.options.elements.pagination.replace(/^\./, '')
     });
 
