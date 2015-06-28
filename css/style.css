@@ -9,16 +9,30 @@ html,body{
 	max-height: 200px;
 }
 .foto{
-	-webkit-filter: blur(1.3px) grayscale(70%);
-	-moz-filter: blur(1.3px) grayscale(70%);
-	filter: blur(1.3px) grayscale(70%);
+	-webkit-filter: blur(1px) grayscale(70%);
+	-moz-filter: blur(1px) grayscale(70%) ;
+	filter: grayscale(70%);
 	transition:all 0.3s ease; 
 
 }
 .foto:hover{
-		-webkit-filter: blur(0px);
+	-webkit-filter: blur(0px);
 	-moz-filter: blur(0px);
 	filter: blur(0px);
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(129,53,222,0.64);
+-moz-box-shadow: 0px 0px 10px 0px rgba(129,53,222,0.64);
+box-shadow: 0px 0px 10px 0px rgba(129,53,222,0.64);
+}
+.filtro-gris{
+	-webkit-filter: grayscale(90%);
+	-moz-filter: grayscale(90%) ;
+	filter: grayscale(90%);
+	transition:all 0.3s ease; 
+}
+.filtro-gris:hover{
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%) ;
+	filter: grayscale(0%);
 }
 .paddin-largo{
 	padding: 1.2em;
@@ -26,7 +40,7 @@ html,body{
 .evento	{
 	margin-right: 1.2em;
 	max-height: 15em;
-	height: 300px;
+	max-width: 100%;
 
 }
 .rigth-space {
@@ -37,9 +51,84 @@ html,body{
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
+	height: 100%;
 }
 .galeria{
-	margin-right: 1.2em;
+	
 	max-width: 100%;
-	height: 200px;
+	
+}
+.bgimg{
+	z-index: -2000000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+
+.colornav{
+	background-color: rgba(207,216,220,0.3);
+}
+.up-space{
+	margin-top: 4em !important;
+}
+.pnl{
+	height: 15em;
+}
+.cosa{
+	z-index: -1000;	
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20em;
+	background-color: rgba(74,20,140,.3);
+	-webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	-moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.eliminar{
+	z-index: 3;
+	position: relative;
+	top :1.5em;
+	left: .5em;
+	color: red !important;
+	transition:all .2s ease;
+}
+.eliminar:hover{
+text-shadow: 0 0 5px #FFf;
+}
+.login{
+	position: absolute;
+	top: 20%;
+	left: 40%;
+	width: 12em;
+	height: auto;
+	border-radius: .2em;	
+	background-color: rgba(0,0,0,.3);
+	padding: 1em 4em;
+	opacity: 0.5;
+	transition:all .3s ease;
+}
+.login:hover{
+	opacity: 1;
+}
+.login:active{
+	opacity: 1;
+}
+.input-fld{
+	padding: 1rem;
+}
+.btn{
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
 }

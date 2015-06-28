@@ -9,33 +9,58 @@
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" href="css/lightbox.css"> 
-<body class="blue">
+<body >
+  <img src="img/bg.jpg" alt="" class="bgimg">
   <?php 
-  $idgaleria=$_GET['idgaleria'];
-  $id=$idgaleria;
+
 include("php/conexion.php");
 $link=Conectarse();
 
   ?>
+  <?php include("navegacion.php"); 
+  $c=mysql_query("SELECT * FROM galerias WHERE tipo=0");
+  $tamanio=mysql_num_rows($c);
+
+  ?>
+
+<div class="cosa"></div>
   <div class="container espacio-arriba">
     <div class="paddin-largo ">
-      <div class="row">
+      <div class="row card">
+        <h3 class="center-align">Portafolio <i class="ion-android-camera small"></i></h3>
       </div>
-    <div class="rigth-space row">
-      <?php 
-      
-      $result=mysql_query("SELECT * FROM galerias ",$link);
-        while ($row = mysql_fetch_row($result)){
-          echo '<a class="card col s12 m3 l3 galeria" href="galeria.php?idgaleria='.$row[0].'">
-                  <h3>Galeria '.$row[2].'</h3>
-                </a>';
+      <!--ciclo para scar registros-->
+      <div class="row">
+              <?php 
+               $result=mysql_query("SELECT * FROM galerias WHERE tipo=0",$link);
+        for ($i=0; $i <$tamanio ; $i++) { 
+          echo '<div class="row">';
+            for ($j=0; $j <4 ; $j++) { 
+
+              while ($row = mysql_fetch_row($result)){
+                echo '
+              <div class="col s12 m3 l3">
+                <div class="row">
+                  <div class="card col s12 m10 l10 ">
+                    <a class="c" href="galeria.php?idgaleria='.$row[0].'">
+                <span><h4 class="center-align">'.$row[2].'</h4></span>
+                </a>
+                  </div>
+                </div>
+              </div>
+                ';
+              }
+              
+            }
+          echo "</div>";
         }
-      ?>
-    </div>
+      ?>    
+      </div>
+  
+
     </div>
 
   </div>
-
 
   <!--SCRIPTS-->
     

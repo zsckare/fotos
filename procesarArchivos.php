@@ -1,4 +1,5 @@
-<?php
+<?php  include("php/conexion.php");
+$linksd=Conectarse();
 if (!empty($_FILES)) {
     $existingFile = false;
     //Comprobamos que por lo menos haya un archivo
@@ -56,8 +57,7 @@ function moveFiles($files)
                             echo "No se puede mover el archivo \n";
                         } else {
                             $fileLocations[] = $fileName;
-                            include("php/conexion.php");
-                            $linksd=Conectarse();
+                          
                             $ruta=$uploadDirectory."/".$fileName;
                             $galeria=$_POST['galeria'];
 $insertar="INSERT INTO `fotos`.`fotos` (`id_foto`, `ruta_foto`, `id_galeria`) VALUES (NULL, '$ruta', '$galeria')";

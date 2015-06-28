@@ -8,13 +8,9 @@
   <!-- CSS  -->
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ 
 </head>
-<body class="blue">
-  <?php 
-  $idgaleria=$_GET['id_galeria'];
-  $id=$idgaleria;
-  ?>
-    <?php 
+<body  >    <?php 
     session_start();
     if(isset($_SESSION['u_user'])){
 
@@ -23,30 +19,31 @@
       header("Location: ../index.php");
     }
   ?>
- <div class="container">
-  <div class="card paddin-largo">
-<form action="../procesarArchivos.php" method="post" enctype="multipart/form-data">
-    <?php echo '<input type="hidden" name="galeria" value="'.$id.'">'; ?>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
+  <?php include("navegacion.php"); ?>
+  <div class="cosa"></div>
+  <div class="container up-space">
+    <div class="row">
+      <a href="../nuevaGaleria.php" class="card col s12 m4 l4 pnl offset-m1 offset-l1">
+        <span class="row">
+          <h3 class="center-align">Nueva Galeria</h3>
+        </span>
+      </a>
 
+      <a href="../nuevaCategoria.php" class="card col s12 m4 l4 pnl offset-m2 offset-l2">
+        <span class="row">
+          <h3 class="center-align">Nueva Categoria</h3>
+        </span>
+      </a>
+    </div>
+        <div class="row">
+      <a href="galerias.php" class="card col s12 m4 l4 pnl offset-m4 offset-l4">
+        <span class="row">
+          <h3 class="center-align">Administrar Galerias</h3>
+        </span>
+      </a>
 
-    <br><br>
-    <input type="submit" value="Guardar Archivos">
-  </form>
-
-
+    </div>
   </div>
-</div>
-
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

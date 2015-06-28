@@ -3,54 +3,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Galeria</title>
+  <title>Portafolio</title>
 
   <!-- CSS  -->
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" href="css/lightbox.css"> 
-    <style>
-
-  body{
-    background-image: url("img/bg.jpg");
-  }
-</style>
 <body class="indigo darken-1" >
   <?php 
-  $idgaleria=$_GET['idgaleria'];
-  $id=$idgaleria;
+
 include("php/conexion.php");
 $link=Conectarse();
-  $con=mysql_query("SELECT *FROM galerias WHERE id_galeria='$id' ",$link);
-  if($row=mysql_fetch_row($con)){
-    $nombre=$row[2];
 
-  }
   ?>
-<?php include("navegacion.php"); ?>
+  <?php include("navegacion.php"); ?>
 <div class="cosa"></div>
   <div class="container espacio-arriba">
-    <div class="card paddin-largo ">
-      <div class="row">
-        <h4 class="center-align"><?php echo "Galeria de ".$nombre ?></h4>
+    <div class="paddin-largo ">
+      <div class="row card">
+        <h3 class="center-align">Portafolio <i class="ion-android-camera small"></i></h3>
       </div>
-    <div class="rigth-space row">
+    <div class="row">
       <?php 
-      
-      $result=mysql_query("SELECT * FROM fotos WHERE id_galeria='$id' ",$link);
+      $rutaimagen="";
+      $result=mysql_query("SELECT * FROM galerias WHERE tipo=0",$link);
         while ($row = mysql_fetch_row($result)){
-          echo '<div class="col s3 m3 l3 evento">
-                <a href="'.$row[1].'" data-lightbox="gal">
-                  <img src="'.$row[1].'" alt="" class="imagenes foto" style="padding:1em;">
-                </a>
-                </div>';
+          $idgal=$row[0];
+          
+
+            $consulta=mysql_query("SELECT MAX(ruta_foto) FROM fotos WHERE id_galeria='$idgal' ");
+            if ($rs = mysql_fetch_row($consulta)) {
+            $rutaimagen = trim($rs[0]);
+            }
+          echo '<a class="card col s12 m2 l2 galeria" href="galeria.php?idgaleria='.$row[0].'">
+          <span><h4 class="center-align">'.$row[2].'</h4></span>
+          <span><img src="'.$rutaimagen.'" alt="" class="responsive-img"></span>
+                </a>';
         }
       ?>
     </div>
     </div>
 
   </div>
-
 
   <!--SCRIPTS-->
     

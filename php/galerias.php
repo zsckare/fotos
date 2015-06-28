@@ -9,10 +9,19 @@
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
+<body class="indigo darken-1" >
+    <?php include("navegacion.php"); ?>
 <div class="container">
-  <div class="card">
-   
+    <?php 
+    session_start();
+    if(isset($_SESSION['u_user'])){
+
+    }
+    else{
+      header("Location: ../index.php");
+    }
+  ?>
+  <div class="card paddin-largo">
        <?php 
         include("conexion.php");
         $link=Conectarse();

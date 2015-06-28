@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title></title>
+  <title>Alejandro Herrera | Fotografo</title>
 
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -16,14 +16,15 @@
   }
 </style>
 <body>
-<nav></nav>
+<?php include("navegacion.php"); ?>
+
 <div id="sliderscreen">
   <div id="slides">
     <div class="slides-container">
       <?php 
       include("php/conexion.php");
 $link=Conectarse();
-      $result=mysql_query("SELECT * FROM fotos WHERE id_galeria=2 ",$link);
+      $result=mysql_query("SELECT * FROM fotos WHERE id_galeria=4 ",$link);
         while ($row = mysql_fetch_row($result)){
           echo '
                   <img src="'.$row[1].'" alt="" >
@@ -34,9 +35,7 @@ $link=Conectarse();
 
   </div>
 </div>
-<div class="logo">
-  <h3>Alejandro Herrera</h3>
-</div>
+
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>

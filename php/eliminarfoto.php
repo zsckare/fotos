@@ -9,11 +9,7 @@
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body class="blue">
-  <?php 
-  $idgaleria=$_GET['id_galeria'];
-  $id=$idgaleria;
-  ?>
+<body class="indigo darken-1" >
     <?php 
     session_start();
     if(isset($_SESSION['u_user'])){
@@ -23,30 +19,17 @@
       header("Location: ../index.php");
     }
   ?>
- <div class="container">
-  <div class="card paddin-largo">
-<form action="../procesarArchivos.php" method="post" enctype="multipart/form-data">
-    <?php echo '<input type="hidden" name="galeria" value="'.$id.'">'; ?>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
-    <label>Archivo </label>
-    <input type="file" name="archivo[]"><br>
+  <?php 
+    include ("conexion.php");
+    $link=Conectarse();
+    $id_foto=$_GET['id_foto'];
+    $id_galeria=$_GET['gal'];
+    $query=mysql_query("DELETE FROM fotos WHERE id_foto='$id_foto' ");
+
+    header("Location: editarGaleria.php?idgaleria=".$id_galeria."");
 
 
-    <br><br>
-    <input type="submit" value="Guardar Archivos">
-  </form>
-
-
-  </div>
-</div>
-
+  ?>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
